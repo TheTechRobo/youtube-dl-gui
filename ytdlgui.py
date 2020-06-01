@@ -7,7 +7,7 @@ from subprocess import Popen, PIPE
 window = Tk()
 
 mbox.showinfo("Copyright","Copyleft (c) 2020 TheTechRobo. Licensed under the GPLv3.")
-mbox.showinfo("Copyright","You should have received a copy with this Software. Else, go to www.raw.githubusercontent.com/thetechrobo/youtube-dl-gui/master/LICENSE")
+mbox.showinfo("Copyright","You should have received a copy with this Software. Else, go to http://raw.githubusercontent.com/thetechrobo/youtube-dl-gui/master/LICENSE")
 def commence():
     mbox.showinfo("...","Commencing download...")
     url = Widgets.video.get()
