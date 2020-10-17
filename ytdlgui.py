@@ -14,7 +14,7 @@ def commence():
     try:
         hi = Popen(["youtube-dl", url], shell=False, stdout=PIPE, stderr=PIPE)
     except:
-        mbox.showerror("ERROR!", "yt-downloader does not look installed")
+        mbox.showerror("ERROR!", "youtube-dl does not look installed")
     else:
         print(hi.communicate())
 
