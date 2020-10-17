@@ -2,7 +2,8 @@ infos = {"author": "TheTechRobo", "license": "GPLv3", "type": "gui", "category":
 
 from tkinter import Button, Tk, Entry
 from tkinter import messagebox as mbox
-from subprocess import Popen, PIPE
+from subprocess import Popen
+from sys import stdout as sstdout
 
 window = Tk()
 
@@ -12,7 +13,7 @@ def commence():
     mbox.showinfo("...","Commencing download...")
     url = Widgets.video.get()
     try:
-        hi = Popen(["youtube-dl", url], shell=False, stdout=PIPE, stderr=PIPE)
+        hi = Popen(["youtube-dl", url], shell=False, stdout=sstdout, stderr=sstdout)
     except:
         mbox.showerror("ERROR!", "youtube-dl does not look installed")
     else:
