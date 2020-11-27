@@ -1,6 +1,6 @@
 infos = {"author": "TheTechRobo", "license": "GPLv3", "type": "gui", "category": "internet", "category2": "video", "category3": "python"}
 
-from tkinter import Button, Tk, Entry
+from tkinter import Button, Tk, Entry, Toplevel, PhotoImage, Label
 from tkinter import messagebox as mbox
 from subprocess import Popen
 from sys import stdout as sstdout
@@ -12,17 +12,23 @@ mbox.showinfo("Copyright","You should have received a copy with this Software. E
 def commence():
     mbox.showinfo("...","Commencing download...")
     url = Widgets.video.get()
+    load = Toplevel(window)
+    image = PhotoImage(file='/usr/share/youtube-dl-gui/pleasewait.png')
+    Label(load, image=image).pack()
     try:
         hi = Popen(["youtube-dl", url], shell=False, stdout=sstdout, stderr=sstdout)
-    except:
-        mbox.showerror("ERROR!", "youtube-dl does not look installed")
+    except Exception as ename:
+        mbox.showerror("ERROR!", "An error occured.")
+        print(ename)
     else:
         print(hi.communicate())
 
 class Widgets:
     video = Entry(window)
-    Button(window, text="OK", command=commence).pack()
+    text = Label(text="Please insert a URL.")
 
+Widgets.text.pack()
 Widgets.video.pack()
+Button(window, text="OK", command=commence).pack()
 
 window.mainloop()
