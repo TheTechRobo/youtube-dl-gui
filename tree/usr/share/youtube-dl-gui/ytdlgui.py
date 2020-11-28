@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 infos = {"author": "TheTechRobo", "license": "GPLv3", "type": "gui", "category": "internet", "category2": "video", "category3": "python"}
 
 from tkinter import Button, Tk, Entry, Toplevel, PhotoImage, Label
