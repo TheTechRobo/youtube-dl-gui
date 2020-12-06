@@ -25,12 +25,13 @@ def getPhoto(window):
 mbox.showinfo("Copyright","Copyleft (c) 2020 TheTechRobo. Licensed under the GPLv3.")
 mbox.showinfo("Copyright","You should have received a copy with this Software. Else, go to http://raw.githubusercontent.com/thetechrobo/youtube-dl-gui/master/LICENSE")
 
-def musicbox(wid, url):
+def musicbox(wid, url, load):
     if Variables.audioSelect.get():
         player = MPyg321Player()
         player.play_song("/usr/share/youtube-dl-gui/loading_music.mp3")
     Popen(['xterm -into %d -geometry 200x50 -sb -e /bin/sh -c "youtube-dl %s;sleep 1;exit"' % (wid, url)], stdout=sstdout, stderr=sstdout, shell=True).wait()
     player.stop()
+    load.destroy()
 
 def commence():
     global photo #This is necessary because https://stackoverflow.com/a/16424553/9654083
@@ -47,7 +48,7 @@ def commence():
     termf.pack(side="bottom", fill="both", expand=YES) #https://stackoverflow.com/questions/37017472/python-tkinter-place-put-frame-to-the-bottom
     wid = termf.winfo_id()
     try:
-        thread = threading.Thread(target=musicbox, daemon=True, args=(wid, url)) #https://realpython.com/intro-to-python-threading/
+        thread = threading.Thread(target=musicbox, daemon=True, args=(wid, url, load)) #https://realpython.com/intro-to-python-threading/
         thread.start()
     except Exception as ename:
         mbox.showerror("ERROR!", "An error occured.")
