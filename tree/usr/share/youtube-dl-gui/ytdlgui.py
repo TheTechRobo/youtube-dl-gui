@@ -8,7 +8,8 @@ from tkinter import Button, Tk, Entry, Toplevel, PhotoImage, Label, Frame, YES, 
 from tkinter import messagebox as mbox
 from subprocess import Popen
 from sys import stdout as sstdout
-from playsound import playsound
+from mpyg321 import MPyg321Player
+import time
 
 window = Tk()
 
@@ -33,16 +34,19 @@ def commence():
     load = Toplevel(window)
     load.geometry("1000x1000")
     photo = getPhoto(load)
+    time.sleep(1)
     if Variables.audioSelect.get():
-        playsound("/usr/share/youtube-dl-gui/loading_music.mp3", block=False)
+        player = MPyg321Player()
+        player.play_song("/usr/share/youtube-dl-gui/loading_music.mp3")
     termf = Frame(load, height=50, width=200)
     termf.pack(side="bottom", fill="both", expand=YES) #https://stackoverflow.com/questions/37017472/python-tkinter-place-put-frame-to-the-bottom
     wid = termf.winfo_id()
     try:
-        Popen(['xterm -into %d -geometry 200x50 -sb -e /bin/sh -c "youtube-dl %s;sleep 1;exit"' % (wid, url)], stdout=sstdout, stderr=sstdout, shell=True)
+        Popen(['xterm -into %d -geometry 200x50 -sb -e /bin/sh -c "youtube-dl %s;sleep 1;exit"' % (wid, url)], stdout=sstdout, stderr=sstdout, shell=True).wait()
     except Exception as ename:
         mbox.showerror("ERROR!", "An error occured.")
         print(ename)
+    player.stop()
 
 class Variables:
     audioSelect = IntVar()
