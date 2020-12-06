@@ -9,7 +9,10 @@ from sys import stdout as sstdout
 
 window = Tk()
 
-def getPhoto(window):
+def getPhoto(window): 
+    """
+    This is not necessary anymore but im too lazy to move it out lol
+    """
     image = PhotoImage(file='/usr/share/youtube-dl-gui/pleasewait.png')
     Label(window, image=image).pack(fill="both", expand=False, side="top")
     return image
@@ -17,7 +20,8 @@ def getPhoto(window):
 mbox.showinfo("Copyright","Copyleft (c) 2020 TheTechRobo. Licensed under the GPLv3.")
 mbox.showinfo("Copyright","You should have received a copy with this Software. Else, go to http://raw.githubusercontent.com/thetechrobo/youtube-dl-gui/master/LICENSE")
 def commence():
-    global photo
+    global photo #This is necessary because https://stackoverflow.com/a/16424553/9654083
+    #AKA, It prevents the image from getting garbage collected
     mbox.showinfo("Commencing download...","Press OK to start...")
     url = Widgets.video.get()
     if url == "":
@@ -25,15 +29,14 @@ def commence():
     load = Toplevel(window)
     load.geometry("1000x1000")
     photo = getPhoto(load)
-    termf = Frame(load, height=50, width=100)
+    termf = Frame(load, height=50, width=200)
     termf.pack(side="bottom", fill="both", expand=YES) #https://stackoverflow.com/questions/37017472/python-tkinter-place-put-frame-to-the-bottom
     wid = termf.winfo_id()
     try:
-        Popen(['xterm -into %d -geometry 100x50 -sb -e /bin/sh -c "youtube-dl %s;exit"' % (wid, url)], stdout=sstdout, stderr=sstdout, shell=True)
+        Popen(['xterm -into %d -geometry 200x50 -sb -e /bin/sh -c "youtube-dl %s;exit"' % (wid, url)], stdout=sstdout, stderr=sstdout, shell=True)
     except Exception as ename:
         mbox.showerror("ERROR!", "An error occured.")
         print(ename)
-    return photo
 
 class Widgets:
     video = Entry(window)
