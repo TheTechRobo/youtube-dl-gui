@@ -33,7 +33,7 @@ def commence():
     termf.pack(side="bottom", fill="both", expand=YES) #https://stackoverflow.com/questions/37017472/python-tkinter-place-put-frame-to-the-bottom
     wid = termf.winfo_id()
     try:
-        Popen(['xterm -into %d -geometry 200x50 -sb -e /bin/sh -c "youtube-dl %s;exit"' % (wid, url)], stdout=sstdout, stderr=sstdout, shell=True)
+        Popen(['xterm -into %d -geometry 200x50 -sb -e /bin/sh -c "youtube-dl %s;sleep 1;exit"' % (wid, url)], stdout=sstdout, stderr=sstdout, shell=True)
     except Exception as ename:
         mbox.showerror("ERROR!", "An error occured.")
         print(ename)
