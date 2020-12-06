@@ -25,7 +25,7 @@ def getPhoto(window):
 mbox.showinfo("Copyright","Copyleft (c) 2020 TheTechRobo. Licensed under the GPLv3.")
 mbox.showinfo("Copyright","You should have received a copy with this Software. Else, go to http://raw.githubusercontent.com/thetechrobo/youtube-dl-gui/master/LICENSE")
 
-def musicbox():
+def musicbox(wid, url):
     if Variables.audioSelect.get():
         player = MPyg321Player()
         player.play_song("/usr/share/youtube-dl-gui/loading_music.mp3")
@@ -43,12 +43,11 @@ def commence():
     load.geometry("1000x1000")
     photo = getPhoto(load)
     time.sleep(1)
-    
     termf = Frame(load, height=50, width=200)
     termf.pack(side="bottom", fill="both", expand=YES) #https://stackoverflow.com/questions/37017472/python-tkinter-place-put-frame-to-the-bottom
     wid = termf.winfo_id()
     try:
-        thread = threading.Thread(target=musicbox, daemon=True) #https://realpython.com/intro-to-python-threading/
+        thread = threading.Thread(target=musicbox, daemon=True, args=(wid, url)) #https://realpython.com/intro-to-python-threading/
         thread.start()
     except Exception as ename:
         mbox.showerror("ERROR!", "An error occured.")
