@@ -2,7 +2,7 @@
 
 infos = {"author": "TheTechRobo", "license": "GPLv3", "type": "gui", "category": "internet", "category2": "video", "category3": "python"}
 
-from tkinter import Button, Tk, Entry, Toplevel, PhotoImage, Label, Frame, YES#, BOTH
+from tkinter import Button, Tk, Entry, Toplevel, PhotoImage, Label, Frame, YES, IntVar, Checkbutton
 from tkinter import messagebox as mbox
 from subprocess import Popen
 from sys import stdout as sstdout
@@ -39,12 +39,18 @@ def commence():
         mbox.showerror("ERROR!", "An error occured.")
         print(ename)
 
+class Variables:
+    audioSelect = IntVar()
+    audioSelect.set(1)
+
 class Widgets:
     video = Entry(window)
     text = Label(text="Please insert a URL.")
+    audio = Checkbutton(variable=Variables.audioSelect, onvalue=True, offvalue=False, text="Add loading music?") #https://stackoverflow.com/a/16285194/9654083
 
 Widgets.text.pack()
 Widgets.video.pack()
+Widgets.audio.pack()
 Button(window, text="OK", command=commence).pack()
 
 window.mainloop()
