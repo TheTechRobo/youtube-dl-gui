@@ -2,6 +2,8 @@
 
 infos = {"author": "TheTechRobo", "license": "GPLv3", "type": "gui", "category": "internet", "category2": "video", "category3": "python"}
 
+moreCredits = ["https://stackoverflow.com/questions/17760871/python-tkinter-photoimage", "https://stackoverflow.com/questions/15306631/how-do-i-create-child-windows-with-python-tkinter", "https://stackoverflow.com/a/31088999/9654083", "https://stackoverflow.com/a/7331836/9654083"]
+
 from tkinter import Button, Tk, Entry, Toplevel, PhotoImage, Label, Frame, YES, IntVar, Checkbutton
 from tkinter import messagebox as mbox
 from subprocess import Popen
@@ -20,6 +22,7 @@ def getPhoto(window):
 
 mbox.showinfo("Copyright","Copyleft (c) 2020 TheTechRobo. Licensed under the GPLv3.")
 mbox.showinfo("Copyright","You should have received a copy with this Software. Else, go to http://raw.githubusercontent.com/thetechrobo/youtube-dl-gui/master/LICENSE")
+
 def commence():
     global photo #This is necessary because https://stackoverflow.com/a/16424553/9654083
     #AKA, It prevents the image from getting garbage collected
@@ -30,6 +33,8 @@ def commence():
     load = Toplevel(window)
     load.geometry("1000x1000")
     photo = getPhoto(load)
+    if Variables.audioSelect.get():
+        playsound("/usr/share/youtube-dl-gui/loading_music.mp3", block=False)
     termf = Frame(load, height=50, width=200)
     termf.pack(side="bottom", fill="both", expand=YES) #https://stackoverflow.com/questions/37017472/python-tkinter-place-put-frame-to-the-bottom
     wid = termf.winfo_id()
