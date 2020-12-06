@@ -1,0 +1,6 @@
+tree/usr/share/youtube-dl-gui/__pycache__/
+*.pyc
+*.pyo
+*.dll
+Thumbs.db
+.DS_Store
