@@ -7,8 +7,6 @@ from tkinter import messagebox as mbox
 from subprocess import Popen
 from sys import stdout as sstdout
 from playsound import playsound
-import sys
-sys.dont_write_bytecode = True
 
 window = Tk()
 
@@ -48,7 +46,5 @@ class Widgets:
 Widgets.text.pack()
 Widgets.video.pack()
 Button(window, text="OK", command=commence).pack()
-
-playsound("/usr/share/youtube-dl-gui/loading_music.mp3")
 
 window.mainloop()
