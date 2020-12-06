@@ -10,6 +10,7 @@ from subprocess import Popen
 from sys import stdout as sstdout
 from mpyg321 import MPyg321Player
 import time
+import threading
 
 window = Tk()
 
@@ -24,6 +25,13 @@ def getPhoto(window):
 mbox.showinfo("Copyright","Copyleft (c) 2020 TheTechRobo. Licensed under the GPLv3.")
 mbox.showinfo("Copyright","You should have received a copy with this Software. Else, go to http://raw.githubusercontent.com/thetechrobo/youtube-dl-gui/master/LICENSE")
 
+def musicbox():
+    if Variables.audioSelect.get():
+        player = MPyg321Player()
+        player.play_song("/usr/share/youtube-dl-gui/loading_music.mp3")
+    Popen(['xterm -into %d -geometry 200x50 -sb -e /bin/sh -c "youtube-dl %s;sleep 1;exit"' % (wid, url)], stdout=sstdout, stderr=sstdout, shell=True).wait()
+    player.stop()
+
 def commence():
     global photo #This is necessary because https://stackoverflow.com/a/16424553/9654083
     #AKA, It prevents the image from getting garbage collected
@@ -35,18 +43,16 @@ def commence():
     load.geometry("1000x1000")
     photo = getPhoto(load)
     time.sleep(1)
-    if Variables.audioSelect.get():
-        player = MPyg321Player()
-        player.play_song("/usr/share/youtube-dl-gui/loading_music.mp3")
+    
     termf = Frame(load, height=50, width=200)
     termf.pack(side="bottom", fill="both", expand=YES) #https://stackoverflow.com/questions/37017472/python-tkinter-place-put-frame-to-the-bottom
     wid = termf.winfo_id()
     try:
-        Popen(['xterm -into %d -geometry 200x50 -sb -e /bin/sh -c "youtube-dl %s;sleep 1;exit"' % (wid, url)], stdout=sstdout, stderr=sstdout, shell=True).wait()
+        thread = threading.Thread(target=musicbox, daemon=True) #https://realpython.com/intro-to-python-threading/
+        thread.start()
     except Exception as ename:
         mbox.showerror("ERROR!", "An error occured.")
         print(ename)
-    player.stop()
 
 class Variables:
     audioSelect = IntVar()
