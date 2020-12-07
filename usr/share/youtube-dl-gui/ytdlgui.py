@@ -53,7 +53,7 @@ def commence():
     termf = Frame(load, height=50, width=200)
     termf.pack(side="bottom", fill="both", expand=YES) #https://stackoverflow.com/questions/37017472/python-tkinter-place-put-frame-to-the-bottom
     wid = termf.winfo_id()
-    Label(load, text="NOTE: Closing the window WILL NOT CANCEL THE PROCESS! To cancel it, click the button below. (If it doesn't work, click inside the white terminal frame, and type Ctrl and C at the same time.)").pack()
+    Label(load, text="Closing the window WILL NOT CANCEL THE PROCESS! To cancel it, click the button below. (If it doesn't work, click inside the white terminal frame, and type Ctrl and C at the same time.)").pack()
     Button(load, text="CANCEL PROCESS", command=cancel).pack()
     try:
         thread = threading.Thread(target=musicbox, daemon=True, args=(wid, url, load)) #https://realpython.com/intro-to-python-threading/
