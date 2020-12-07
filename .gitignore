@@ -9,3 +9,4 @@ Thumbs.db
 *.egg_info
 *.tar.gz
 *dist/
+*.deb
