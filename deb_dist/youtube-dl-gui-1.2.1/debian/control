@@ -1,0 +1,13 @@
+Source: youtube-dl-gui
+Maintainer: unknown <unknown@unknown>
+Section: python
+Priority: optional
+Build-Depends: dh-python, python3-setuptools, python3-all, debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://github.com/thetechrobo/youtube-dl-gui
+
+Package: python3-youtube-dl-gui
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Description: Frontend for youtube-dl
+

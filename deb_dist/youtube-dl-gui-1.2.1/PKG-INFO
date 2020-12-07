@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: youtube-dl-gui
+Version: 1.2.1
+Summary: Frontend for youtube-dl
+Home-page: https://github.com/thetechrobo/youtube-dl-gui
+Author: TheTechRobo
+Author-email: UNKNOWN
+License: GPLv2
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License

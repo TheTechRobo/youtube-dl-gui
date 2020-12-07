@@ -16,4 +16,7 @@ setup(
     data_files = [
         ('tree/usr/share/applications/', ['youtube-dl-gui.desktop'])
     ],
+    classifiers=[
+        "License :: OSI Approved :: BSD License",
+    ],
 )
