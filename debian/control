@@ -1,0 +1,15 @@
+Source: youtube-dl-gui
+Version: 1.2.2
+Depends: python3-tk, mpg321
+Maintainer: TheTechRobo
+Description: YouTube-DL GUI
+  Simple GUI frontend for youtube-dl
+
+Package: youtube-dl-gui
+Version: 1.2.2
+Architecture: any
+Depends: python3-tk, mpg321
+Maintainer: TheTechRobo
+Description: YouTube-DL GUI
+  Simple GUI frontend for youtube-dl
+

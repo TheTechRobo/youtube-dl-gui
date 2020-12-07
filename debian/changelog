@@ -1,0 +1,5 @@
+youtube-dl-gui (1.2.2) stable; urgency=low
+
+  * Initial release on Debian Package.
+
+ -- thetechrobo <thetechrobo@penguin>  Mon, 07 Dec 2020 16:28:27 -0500
