@@ -1,8 +1,0 @@
-README.md
-setup.py
-youtube-dl-gui/__init__.py
-youtube-dl-gui/mpyg321.py
-youtube_dl_gui.egg-info/PKG-INFO
-youtube_dl_gui.egg-info/SOURCES.txt
-youtube_dl_gui.egg-info/dependency_links.txt
-youtube_dl_gui.egg-info/top_level.txt
