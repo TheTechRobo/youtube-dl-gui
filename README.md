@@ -1,5 +1,5 @@
 # youtube-dl-gui
-A small GUI frontend for youtube-dl
+A small GUI frontend for youtube-dl designed for Elive Linux
 
 # Requirements
 This has only been tested on Debian/Elive Linux, and will NEVER work on Windows unless there is  some major refactoring or you use Git Bash.
