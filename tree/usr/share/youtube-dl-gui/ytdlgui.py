@@ -37,7 +37,7 @@ def musicbox(wid, url, load):
 
 def cancel():
     mbox.showinfo("Cancelling...", "NOTE : Cancelling may leave some temporary files in the current folder; they are safe to delete.\nPlease press OK to cancel...")
-    command.terminate()
+    command.terminate() #https://stackoverflow.com/a/13143013/9654083
 
 def commence():
     global photo #This is necessary because https://stackoverflow.com/a/16424553/9654083
