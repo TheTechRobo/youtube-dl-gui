@@ -47,7 +47,7 @@ def commence():
     if url == "":
         mbox.showerror("Error", "Next time please type a URL.")
     load = Toplevel(window)
-    load.geometry("1000x1000")
+    load.geometry("1100x1000")
     photo = getPhoto(load)
     time.sleep(1)
     termf = Frame(load, height=50, width=200)
