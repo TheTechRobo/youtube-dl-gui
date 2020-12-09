@@ -24,6 +24,7 @@ def getPhoto(window):
 
 mbox.showinfo("Copyright","Copyleft (c) 2020 TheTechRobo. Licensed under the GPLv3.")
 mbox.showinfo("Copyright","You should have received a copy with this Software. Else, go to http://raw.githubusercontent.com/thetechrobo/youtube-dl-gui/master/LICENSE")
+mbox.showinfo("Credits","Song: CHRISRGMFB - Pandemic, promoted by RoyaltyFreePlanet.")
 
 def musicbox(wid, url, load):
     global command
