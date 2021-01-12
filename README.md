@@ -22,7 +22,7 @@ There's three ways
 Go to this link. <!--https://gofile.io/d/TGx4oA-->LINK RECALLED, SEE HERE FOR MORE INFO: https://forum.elivelinux.org/t/youtube-dl-gui-finished/2590/3?u=thetechrobo Install the deb file.
 
 ## Building a .deb file from source
-Clone this repository, don't change into the directory, then type `dpkg-deb youtube-dl-gui`. There will be a resulting `youtube-dl-gui.deb`.
+This way currently doesn't work well, so it's been recalled.
 
 ## Manual
 Copy the files inside `usr` into your `/usr/` folder. Making sure it doesn't overwrite anything.
