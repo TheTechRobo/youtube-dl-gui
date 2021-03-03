@@ -30,7 +30,7 @@ def musicbox(wid, url, load):
     global command
     if Variables.audioSelect.get():
         player = MPyg321Player()
-        player.play_song("/usr/share/youtube-dl-gui/loading_music.mp3")
+        player.play_song("/usr/share/youtube-dl-gui/loading_music.mp3", loop=True)
     command = Popen(['exec xterm -into %d -geometry 200x50 -sb -e /bin/sh -c "youtube-dl %s;sleep 1;exit"' % (wid, url)], stdout=sstdout, stderr=sstdout, shell=True)
     command.wait()
     player.stop()
