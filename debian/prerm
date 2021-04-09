@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+deb_package='youtube-dl-gui'
+python_package='/usr/share/youtube-dl-gui'
+
+if which pyclean >/dev/null 2>&1; then
+    py3clean -p $deb_package
+else
+    dpkg -L $deb_package | grep ${python_package}$ | while read file
+    do
+        find ${file} -type d -name __pycache__ -exec rm -r {} \+
+    done
+fi
+
