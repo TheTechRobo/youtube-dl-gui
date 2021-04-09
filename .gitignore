@@ -4,7 +4,7 @@ tree/usr/share/youtube-dl-gui/__pycache__/
 *.dll
 Thumbs.db
 .DS_Store
-
+build/
 
 *.egg_info
 *.tar.gz
