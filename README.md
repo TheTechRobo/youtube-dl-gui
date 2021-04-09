@@ -19,10 +19,14 @@ Creative Commons Attribution 3.0
 There's three ways
 
 ## Installing the .deb (debian)
-Go to this link. <!--https://gofile.io/d/TGx4oA-->LINK RECALLED, SEE HERE FOR MORE INFO: https://forum.elivelinux.org/t/youtube-dl-gui-finished/2590/3?u=thetechrobo Install the deb file.
+Go to this link. https://github.com/TheTechRobo/youtube-dl-gui/releases. Install the deb file.
 
 ## Building a .deb file from source
-This way currently doesn't work well, so it's been recalled.
+```zsh
+make deb
+cd build
+sudo apt install ./youtube-dl-gui.deb
+```
 
 ## Manual
 Copy the files inside `usr` into your `/usr/` folder. Making sure it doesn't overwrite anything.
