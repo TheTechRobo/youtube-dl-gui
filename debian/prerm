@@ -1,4 +1,5 @@
 #!/bin/sh
+# https://stackoverflow.com/a/49449380/9654083
 set -e
 
 deb_package='youtube-dl-gui'
