@@ -9,7 +9,7 @@ deb:
 
 clean:
 	@echo Removing BUILD directory ...
-	rm -fRIv /home/thetechrobo/youtube-dl-gui-1.3/build
+	rm -fRIv /home/thetechrobo/youtube-dl-gui-1.3/build || echo "Couldn't delete build folder"
 	sleep 2
 
 all:
