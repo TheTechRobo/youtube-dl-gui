@@ -1,5 +1,5 @@
 deb:
-	make clean
+	make clean || echo "Failed to remove build directory"
 	@echo Writing to DEBFILE...
 	cd /home/thetechrobo/youtube-dl-gui-1.3;mkdir build;cd build; cp -r ../tree .; \
 		cp -r ../debian tree/DEBIAN; \
@@ -9,7 +9,7 @@ deb:
 
 clean:
 	@echo Removing BUILD directory ...
-	rm -fRIv /home/thetechrobo/youtube-dl-gui-1.3/build || echo "Couldn't delete build folder"
+	rm -fRIv /home/thetechrobo/youtube-dl-gui-1.3/build
 	sleep 2
 
 all:
