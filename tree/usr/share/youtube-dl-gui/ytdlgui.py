@@ -8,13 +8,17 @@ from tkinter import Button, Tk, Entry, Toplevel, PhotoImage, Label, Frame, YES, 
 from tkinter import messagebox as mbox
 from subprocess import Popen
 from sys import stdout as sstdout
-from mpyg321 import MPyg321Player
-import time
-import threading
+from mpyg321 import MPyg321Player as music_box
+import time,threading
 
+class MPyg321Player(music_box):
+    def on_music_end(self):
+        print("Restart it!")
+        self.play()
+        self.jump("51s")
 window = Tk()
 
-def getPhoto(window): 
+def getPhoto(window):
     """
     This is not necessary anymore but im too lazy to move it out lol
     """
