@@ -1,6 +1,11 @@
 # youtube-dl-gui
 A small GUI frontend for youtube-dl designed for Elive Linux
 
+# This project is paused!
+There are so many other youtube-dl downloaders. Do yourself a favour and use yt-dlp, though.
+
+I may or may not restart development on this project.
+
 # Requirements
 This has only been tested on Debian/Elive Linux, and will NEVER work on Windows unless there is  some major refactoring or you use Git Bash.
 
